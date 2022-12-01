@@ -23,9 +23,9 @@ class SproutFactory extends Factory
         return [
             'user_id' => User::factory(),
             'title' => fake()->sentence(3),
-            'ingredients' => fake()->sentence(),
-            'preparation' => fake()->text(),
-            'description' => fake()->sentence(),
+            'ingredients' => fake()->sentence(30),
+            'preparation' => fake()->text(1000),
+            'description' => fake()->sentence(50),
         ];
     }
 }

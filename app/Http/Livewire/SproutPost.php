@@ -2,11 +2,12 @@
 
 namespace App\Http\Livewire;
 
+use App\Models\Sprout;
 use Livewire\Component;
 
 class SproutPost extends Component
 {
-    public $sprout;
+    public Sprout $sprout;
 
     public function render()
     {
@@ -15,6 +16,6 @@ class SproutPost extends Component
 
     public function showSprout()
     {
-        return redirect()->route('sprout.show', $this->sprout->id);
+        return redirect()->to(route('sprout.show') . "?s=" . $this->sprout->id);
     }
 }

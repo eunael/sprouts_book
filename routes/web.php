@@ -24,7 +24,7 @@ Route::get('/dashboard', Explore::class)->middleware(['auth', 'verified'])->name
 
 Route::middleware('auth')->group(function () {
     Route::prefix('sprout')->group(function () {
-        Route::get('show/{sprout}', ShowSprout::class)->name('sprout.show');
+        Route::get('show', ShowSprout::class)->name('sprout.show');
     });
 
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

@@ -15,6 +15,6 @@ class Explore extends Component
 
     public function getSproutsProperty()
     {
-        return Sprout::with('author')->latest()->get();
+        return Sprout::query()->with('author')->latest()->get();
     }
 }

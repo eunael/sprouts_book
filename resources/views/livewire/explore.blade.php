@@ -4,4 +4,6 @@
             <livewire:sprout-post :sprout="$sprout" :key="$sprout['id']">
         @endforeach
     </div>
+
+    <x-float-link-new-sprout />
 </div>

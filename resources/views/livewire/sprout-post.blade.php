@@ -10,8 +10,8 @@
             </div>
         </div>
         <div class="mb-1">
-            <p class="text-xl font-bold">{{$sprout['title']}}</p>
-            <p>
+            <p class="text-lg font-bold">{{$sprout['title']}}</p>
+            <p class="text-sm">
                 {{$sprout['description']}}
             </p>
         </div>
