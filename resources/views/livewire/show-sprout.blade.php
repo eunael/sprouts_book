@@ -1,4 +1,12 @@
 <div>
+    <nav class="rounded-md w-full ml-3 mt-2">
+        <ol class="list-reset flex">
+            <li class="text-blue-500"><a href="{{route('dashboard')}}">Home</a></li>
+            <li><span class="text-gray-500 mx-2">/</span></li>
+            <li class="text-gray-500">{{ $this->sprout['title'] }}</li>
+        </ol>
+    </nav>
+
     <div class="bg-white rounded m-3 drop-shadow-xl p-3">
         <div class="mb-5">
             <span class="text-xl font-semibold">{{$this->sprout['title']}}</span><br>
