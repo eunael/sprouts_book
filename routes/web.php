@@ -1,7 +1,8 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
-use App\Http\Livewire\Explorar;
+use App\Http\Livewire\Explore;
+use App\Http\Livewire\ShowSprout;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -19,9 +20,13 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/dashboard', Explorar::class)->middleware(['auth', 'verified'])->name('dashboard');
+Route::get('/dashboard', Explore::class)->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
+    Route::prefix('sprout')->group(function () {
+        Route::get('show/{sprout}', ShowSprout::class)->name('sprout.show');
+    });
+
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
