@@ -15,15 +15,12 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
+        $this->call([
+            UsersAdminsSeeder::class,
+        ]);
+
         \App\Models\User::factory(10)
             ->has(\App\Models\Sprout::factory()->count(2))
-            ->create(
-                ['password' => bcrypt('123456')]
-            );
-
-        // \App\Models\User::factory()->create([
-        //     'name' => 'Test User',
-        //     'email' => 'test@example.com',
-        // ]);
+            ->create();
     }
 }

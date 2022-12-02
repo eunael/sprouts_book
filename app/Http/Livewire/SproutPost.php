@@ -18,4 +18,9 @@ class SproutPost extends Component
     {
         return redirect()->to(route('sprout.show') . "?s=" . $this->sprout->id);
     }
+
+    public function editSprout()
+    {
+        return redirect()->to(route('sprout.edit') . "?s=" . $this->sprout->id);
+    }
 }

@@ -20,6 +20,9 @@
                 <button><i class="fa-regular fa-heart"></i></button>
                 {{-- <button><i class="fa-regular fa-comment"></i></button> --}}
                 <button type="button" wire:click='showSprout'><i class="fa-regular fa-eye"></i></button>
+                @can('update', $sprout)
+                    <button type="button" wire:click='editSprout'><i class="fa-regular fa-pen-to-square"></i></button>
+                @endcan
                 <button><i class="fa fa-share-nodes"></i></button>
             </div>
             <div class="flex justify-end items-center space-x-3">

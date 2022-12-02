@@ -11,15 +11,17 @@ class ShowSprout extends Component
 
     protected $queryString = ['s'];
 
+    public Sprout $sprout;
+
+    public function mount()
+    {
+        $this->sprout = Sprout::query()
+            ->where('id', $this->s)
+            ->firstOrFail();
+    }
+
     public function render()
     {
         return view('livewire.show-sprout');
-    }
-
-    public function getSproutProperty()
-    {
-        return Sprout::query()
-            ->where('id', $this->s)
-            ->firstOrFail();
     }
 }

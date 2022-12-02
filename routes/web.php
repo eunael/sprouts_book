@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ProfileController;
 use App\Http\Livewire\CreateSprout;
+use App\Http\Livewire\EditSprout;
 use App\Http\Livewire\Explore;
 use App\Http\Livewire\ShowSprout;
 use Illuminate\Support\Facades\Route;
@@ -27,6 +28,7 @@ Route::middleware('auth')->group(function () {
     Route::prefix('sprout')->group(function () {
         Route::get('create', CreateSprout::class)->name('sprout.create');
         Route::get('show', ShowSprout::class)->name('sprout.show');
+        Route::get('edit', EditSprout::class)->name('sprout.edit');
     });
 
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

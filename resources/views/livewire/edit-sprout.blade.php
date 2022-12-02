@@ -3,7 +3,9 @@
         <ol class="list-reset flex">
             <li class="text-blue-500"><a href="{{route('dashboard')}}">Home</a></li>
             <li><span class="text-gray-500 mx-2">/</span></li>
-            <li class="text-gray-500">Publicar</li>
+            <li class="text-blue-500"><a href="{{route('sprout.show')."?s=".$this->sprout->id}}">{{ $this->sprout['title'] }}</a></li>
+            <li><span class="text-gray-500 mx-2">/</span></li>
+            <li class="text-gray-500">Editar</li>
         </ol>
     </nav>
     <form wire:submit.prevent="submit">
@@ -11,44 +13,44 @@
             <div class="mb-5">
                 <label for="title" class="block text-sm font-medium"><span class="text-gray-700">Titulo</span> <span class="text-red-600">*</span></label>
                 <div class="mt-1 rounded-md shadow-sm">
-                    <input type="text" id="title" wire:model='title'
+                    <input type="text" id="title" wire:model='sprout.title'
                         class="block w-full flex-1
                             rounded-md border-gray-300 focus:border-indigo-500
                             focus:ring-indigo-500 sm:text-sm"
-                        placeholder="Digite um título" value="{{ old('title') }}">
+                        placeholder="Digite um título" value="{{$this->sprout->title}}">
                     @error('title') <span class="text-xs text-red-600">{{ $message }}</span> @enderror
                 </div>
             </div>
             <div class="mb-5">
                 <label for="ingredients" class="block text-sm font-medium"><span class="text-gray-700">Materiais e Ingredientes</span> <span class="text-red-600">*</span></label>
                 <div class="mt-1">
-                    <textarea id="ingredients" rows="5" wire:model='ingredients'
+                    <textarea id="ingredients" rows="5" wire:model='sprout.ingredients'
                         class="mt-1 block w-full rounded-md border-gray-300
                             shadow-sm focus:border-indigo-500 focus:ring-indigo-500
                             sm:text-sm"
-                        placeholder='Liste os materiais e/ou ingredientes que serão utillizados. Exemplo: "- 100g de sal ..."'>{{ old('ingredients') }}</textarea>
+                        placeholder='Liste os materiais e/ou ingredientes que serão utillizados. Exemplo: "- 100g de sal ..."'>{{$this->sprout->ingredients}}</textarea>
                     @error('ingredients') <span class="text-xs text-red-600">{{ $message }}</span> @enderror
                 </div>
             </div>
             <div class="mb-5">
                 <label for="preparation" class="block text-sm font-medium"><span class="text-gray-700">Preparo</span> <span class="text-red-600">*</span></label>
                 <div class="mt-1">
-                    <textarea id="preparation" rows="10" wire:model='preparation'
+                    <textarea id="preparation" rows="10" wire:model='sprout.preparation'
                         class="mt-1 block w-full rounded-md border-gray-300
                             shadow-sm focus:border-indigo-500 focus:ring-indigo-500
                             sm:text-sm"
-                        placeholder='Descreva como é feita de forma que outras também pessoas consigam fazer em casa.'>{{ old('preparation') }}</textarea>
+                        placeholder='Descreva como é feita de forma que outras também pessoas consigam fazer em casa.'>{{$this->sprout->preparation}}</textarea>
                     @error('preparation') <span class="text-xs text-red-600">{{ $message }}</span> @enderror
                 </div>
             </div>
             <div class="mb-5">
                 <label for="description" class="block text-sm font-medium"><span class="text-gray-700">Descrição</span> </label>
                 <div class="mt-1">
-                    <textarea id="description" rows="3" wire:model='description'
+                    <textarea id="description" rows="3" wire:model='sprout.description'
                         class="mt-1 block w-full rounded-md border-gray-300
                             shadow-sm focus:border-indigo-500 focus:ring-indigo-500
                             sm:text-sm"
-                        placeholder='Digite uma descrição'>{{ old('description') }}</textarea>
+                        placeholder='Digite uma descrição'>{{$this->sprout->description}}</textarea>
                     @error('description') <span class="text-xs text-red-600">{{ $message }}</span> @enderror
                 </div>
             </div>
