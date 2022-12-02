@@ -1,4 +1,5 @@
 <div>
+    @auth()
     <nav class="rounded-md w-full ml-3 mt-2">
         <ol class="list-reset flex">
             <li class="text-blue-500"><a href="{{route('dashboard')}}">Home</a></li>
@@ -6,6 +7,7 @@
             <li class="text-gray-500">{{ $sprout['title'] }}</li>
         </ol>
     </nav>
+    @endauth
 
     <div class="bg-white rounded m-3 drop-shadow-xl p-3">
         <div class="mb-5">

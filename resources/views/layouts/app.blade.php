@@ -7,6 +7,11 @@
 
         <title>{{ config('app.name', 'Laravel') }}</title>
 
+        <!-- Favicon -->
+        <link rel="icon" type="image/png" sizes="32x32" href="{{ url(asset('assets/favicon-29x32.png')) }}">
+        <link rel="icon" type="image/png" sizes="16x16" href="{{ url(asset('assets/favicon-14x16.png')) }}">
+        <link rel="shortcut icon" href="{{ url(asset('favicon.ico')) }}">
+
         <!-- Fonts -->
         <link rel="stylesheet" href="https://fonts.bunny.net/css2?family=Nunito:wght@400;600;700&display=swap">
 

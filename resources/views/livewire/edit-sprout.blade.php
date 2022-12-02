@@ -3,7 +3,7 @@
         <ol class="list-reset flex">
             <li class="text-blue-500"><a href="{{route('dashboard')}}">Home</a></li>
             <li><span class="text-gray-500 mx-2">/</span></li>
-            <li class="text-blue-500"><a href="{{route('sprout.show')."?s=".$this->sprout->id}}">{{ $this->sprout['title'] }}</a></li>
+            <li class="text-blue-500"><a href="{{route('sprout.show', ['s' => $sprout['id']])}}">{{ $this->sprout['title'] }}</a></li>
             <li><span class="text-gray-500 mx-2">/</span></li>
             <li class="text-gray-500">Editar</li>
         </ol>

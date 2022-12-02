@@ -5,18 +5,23 @@
             <div class="flex">
                 <!-- Logo -->
                 <div class="shrink-0 flex items-center">
-                    <a href="{{ route('dashboard') }}">
+                    <a href="{{ route('dashboard') }}" class="flex items-center space-x-2">
                         <x-application-logo class="block h-9 w-auto fill-current text-gray-800" />
+                        <span class="self-center text-xl font-semibold whitespace-nowrap">{{ __('SproutsBook') }}</span>
                     </a>
                 </div>
 
-                <!-- Navigation Links -->
-                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                    <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
-                        {{ __('Dashboard') }}
-                    </x-nav-link>
-                </div>
+                @auth()
+                    <!-- Navigation Links -->
+                    <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                        <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
+                            {{ __('Dashboard') }}
+                        </x-nav-link>
+                    </div>
+                @endauth
             </div>
+
+            @auth()
 
             <!-- Settings Dropdown -->
             <div class="hidden sm:flex sm:items-center sm:ml-6">
@@ -61,8 +66,19 @@
                     </svg>
                 </button>
             </div>
+
+            @else
+
+            <div class="flex items-center text-sm space-x-2">
+                <a href="{{ route('register') }}" class="underline opacity-50">Registre-se</a>
+                <a href="{{ route('login') }}" class="underline opacity-50">Entrar</a>
+            </div>
+
+            @endauth
         </div>
     </div>
+
+    @auth()
 
     <!-- Responsive Navigation Menu -->
     <div :class="{'block': open, 'hidden': ! open}" class="hidden sm:hidden">
@@ -97,4 +113,6 @@
             </div>
         </div>
     </div>
+
+    @endauth
 </nav>

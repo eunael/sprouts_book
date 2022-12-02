@@ -19,7 +19,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return redirect()->route('dashboard');
 });
 
 Route::get('/dashboard', Explore::class)->middleware(['auth', 'verified'])->name('dashboard');
@@ -27,7 +27,6 @@ Route::get('/dashboard', Explore::class)->middleware(['auth', 'verified'])->name
 Route::middleware('auth')->group(function () {
     Route::prefix('sprout')->group(function () {
         Route::get('create', CreateSprout::class)->name('sprout.create');
-        Route::get('show', ShowSprout::class)->name('sprout.show');
         Route::get('edit', EditSprout::class)->name('sprout.edit');
     });
 
@@ -35,6 +34,8 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
+
+Route::get('sprout/show', ShowSprout::class)->name('sprout.show');
 
 
 require __DIR__ . '/auth.php';

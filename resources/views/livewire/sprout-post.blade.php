@@ -17,19 +17,22 @@
         </div>
         <div class="flex justify-between items-center">
             <div class="flex justify-start items-center space-x-3">
-                <button><i class="fa-regular fa-heart"></i></button>
-                {{-- <button><i class="fa-regular fa-comment"></i></button> --}}
                 <button type="button" wire:click='showSprout'><i class="fa-regular fa-eye"></i></button>
                 @can('update', $sprout)
                     <button type="button" wire:click='editSprout'><i class="fa-regular fa-pen-to-square"></i></button>
                 @endcan
-                <button><i class="fa fa-share-nodes"></i></button>
+                <button onclick="copyLinkShareToClipboard('{{ $routeShare }}')"><i class="fa fa-share-nodes"></i></button>
             </div>
             <div class="flex justify-end items-center space-x-3">
-                {{-- <button><i class="fa fa-share-nodes"></i></button>
-                <button><i class="fa-regular fa-bookmark"></i></button> --}}
                 <span class="opacity-50 text-xs italic">{{ $sprout['created_at'] }}</span>
             </div>
         </div>
     </div>
+
+    <script>
+        function copyLinkShareToClipboard(routeShare) {
+            navigator.clipboard.writeText(routeShare);
+            alert('Link copiado para a área de transferência!');
+        }
+    </script>
 </div>

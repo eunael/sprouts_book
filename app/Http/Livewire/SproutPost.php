@@ -8,6 +8,12 @@ use Livewire\Component;
 class SproutPost extends Component
 {
     public Sprout $sprout;
+    public $routeShare;
+
+    public function mount()
+    {
+        $this->routeShare = route('sprout.show', ['s' => $this->sprout->id]);
+    }
 
     public function render()
     {
@@ -16,11 +22,11 @@ class SproutPost extends Component
 
     public function showSprout()
     {
-        return redirect()->to(route('sprout.show') . "?s=" . $this->sprout->id);
+        return redirect()->to(route('sprout.show', ['s' => $this->sprout->id]));
     }
 
     public function editSprout()
     {
-        return redirect()->to(route('sprout.edit') . "?s=" . $this->sprout->id);
+        return redirect()->to(route('sprout.edit', ['s' => $this->sprout->id]));
     }
 }
